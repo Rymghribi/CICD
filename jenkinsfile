@@ -36,6 +36,7 @@ stage("Git Clone"){
 
 stage('Building image') {
 withEnv(["imagename=rymaa/demo-rest-api"]) {
+sh './mvnw -B -DskipTests clean package'
 dockerImage = docker.build imagename
 }
 }
