@@ -29,6 +29,10 @@ checkout scm
 //env.git_commit_id_short = env.git_commit_id.take(7)
 //currentBuild.displayName = "#${currentBuild.number}-${env.git_commit_id_short}"
 }
+stage("Git Clone"){
+
+        git credentialsId: 'GIT_CREDENTIALS', url: 'https://github.com/Rymghribi/CICD.git'
+    }
 
 stage('Building image') {
 withEnv(["imagename=rymaa/demo-rest-api"]) {
